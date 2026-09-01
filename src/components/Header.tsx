@@ -33,8 +33,8 @@ export function Header({ menuOpen, onToggleMenu, onNavigate }: HeaderProps) {
         </nav>
 
         <div className="site-header__actions">
-          <a className="btn btn--primary btn--sm" href="#product">
-            Explore Ideate
+          <a className="btn btn--primary btn--sm" href="#beta">
+            Join the Beta
           </a>
           <button
             type="button"
@@ -71,10 +71,10 @@ export function Header({ menuOpen, onToggleMenu, onNavigate }: HeaderProps) {
             <li>
               <a
                 className="btn btn--primary"
-                href="#product"
+                href="#beta"
                 onClick={onNavigate}
               >
-                Explore Ideate
+                Join the Beta
               </a>
             </li>
           </ul>
