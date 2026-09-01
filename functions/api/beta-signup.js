@@ -42,8 +42,20 @@ async function sendSignupNotification(env, signup) {
     return
   }
 
-  const timestamp = new Date().toISOString()
   const source = 'website'
+  // en-US + Denver yields e.g. "September 1, 2026, 12:32 PM MDT"
+  // Normalize the second comma into " at " for readability.
+  const formattedTimestamp = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Denver',
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    timeZoneName: 'short',
+  })
+    .format(new Date())
+    .replace(/, (\d{1,2}:)/, ' at $1')
 
   const text = [
     'New Ideate beta signup',
@@ -52,7 +64,7 @@ async function sendSignupNotification(env, signup) {
     `Role / Title: ${signup.role}`,
     `Email: ${signup.email}`,
     `Source: ${source}`,
-    `Signup timestamp: ${timestamp}`,
+    `Signup timestamp: ${formattedTimestamp}`,
   ].join('\n')
 
   const html = `
@@ -77,7 +89,7 @@ async function sendSignupNotification(env, signup) {
         </tr>
         <tr>
           <td style="padding: 4px 16px 4px 0; color: #57534e;">Signup timestamp</td>
-          <td style="padding: 4px 0;">${escapeHtml(timestamp)}</td>
+          <td style="padding: 4px 0;">${escapeHtml(formattedTimestamp)}</td>
         </tr>
       </table>
     </div>
