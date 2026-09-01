@@ -1,6 +1,7 @@
 /**
  * POST /api/beta-signup
  * Cloudflare Pages Function with D1 binding: BETA_DB
+ * Optional Resend notification via RESEND_API_KEY + BETA_NOTIFY_EMAIL
  */
 
 const MAX_NAME = 120
@@ -17,6 +18,95 @@ function json(data, status = 200) {
       'Cache-Control': 'no-store',
     },
   })
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;')
+}
+
+/**
+ * Fire-and-forget style notification after a successful new signup.
+ * Failures are logged minimally and never surface to the client.
+ */
+async function sendSignupNotification(env, signup) {
+  const apiKey = env?.RESEND_API_KEY
+  const notifyTo = env?.BETA_NOTIFY_EMAIL
+
+  if (!apiKey || !notifyTo) {
+    console.error('beta-signup notification skipped: missing configuration')
+    return
+  }
+
+  const timestamp = new Date().toISOString()
+  const source = 'website'
+
+  const text = [
+    'New Ideate beta signup',
+    '',
+    `Name: ${signup.name}`,
+    `Role / Title: ${signup.role}`,
+    `Email: ${signup.email}`,
+    `Source: ${source}`,
+    `Signup timestamp: ${timestamp}`,
+  ].join('\n')
+
+  const html = `
+    <div style="font-family: system-ui, -apple-system, sans-serif; line-height: 1.5; color: #1c1917;">
+      <p style="margin: 0 0 12px;"><strong>New Ideate beta signup</strong></p>
+      <table style="border-collapse: collapse; font-size: 14px;">
+        <tr>
+          <td style="padding: 4px 16px 4px 0; color: #57534e;">Name</td>
+          <td style="padding: 4px 0;">${escapeHtml(signup.name)}</td>
+        </tr>
+        <tr>
+          <td style="padding: 4px 16px 4px 0; color: #57534e;">Role / Title</td>
+          <td style="padding: 4px 0;">${escapeHtml(signup.role)}</td>
+        </tr>
+        <tr>
+          <td style="padding: 4px 16px 4px 0; color: #57534e;">Email</td>
+          <td style="padding: 4px 0;">${escapeHtml(signup.email)}</td>
+        </tr>
+        <tr>
+          <td style="padding: 4px 16px 4px 0; color: #57534e;">Source</td>
+          <td style="padding: 4px 0;">${escapeHtml(source)}</td>
+        </tr>
+        <tr>
+          <td style="padding: 4px 16px 4px 0; color: #57534e;">Signup timestamp</td>
+          <td style="padding: 4px 0;">${escapeHtml(timestamp)}</td>
+        </tr>
+      </table>
+    </div>
+  `.trim()
+
+  try {
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: 'Ideate Beta <beta@ideateproduct.com>',
+        to: [notifyTo],
+        subject: `New Ideate beta signup: ${signup.name}`,
+        text,
+        html,
+      }),
+    })
+
+    if (!response.ok) {
+      console.error(
+        `beta-signup notification failed: resend returned ${response.status}`,
+      )
+    }
+  } catch {
+    console.error('beta-signup notification failed: request error')
+  }
 }
 
 export async function onRequest(context) {
@@ -96,6 +186,8 @@ export async function onRequest(context) {
     const changes = Number(result?.meta?.changes ?? 0)
 
     if (changes === 1) {
+      // Signup is persisted. Notification must not fail the user response.
+      await sendSignupNotification(env, { name, role, email })
       return json({ ok: true, status: 'joined' }, 201)
     }
 
