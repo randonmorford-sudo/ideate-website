@@ -11,11 +11,11 @@ export function Hero() {
             to a defensible product direction.
           </p>
           <div className="hero__actions">
-            <a className="btn btn--primary" href="#how-it-works">
-              Explore how it works
+            <a className="btn btn--primary" href="#beta">
+              Join the Beta
             </a>
-            <a className="btn btn--secondary" href="#product">
-              View the product
+            <a className="btn btn--secondary" href="#how-it-works">
+              Explore how it works
             </a>
           </div>
         </div>

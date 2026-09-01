@@ -8,7 +8,7 @@ import { Inquiry } from './components/Inquiry'
 import { Workspace } from './components/Workspace'
 import { WhyIdeate } from './components/WhyIdeate'
 import { Builder } from './components/Builder'
-import { FinalCta } from './components/FinalCta'
+import { BetaSignup } from './components/BetaSignup'
 import { Footer } from './components/Footer'
 
 function App() {
@@ -50,7 +50,7 @@ function App() {
         <Workspace />
         <WhyIdeate />
         <Builder />
-        <FinalCta />
+        <BetaSignup />
       </main>
       <Footer />
     </div>
