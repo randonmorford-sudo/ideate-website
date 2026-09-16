@@ -140,6 +140,35 @@ h3 {
   border-color: var(--text-faint);
 }
 
+
+.sign-in-link {
+  color: var(--text);
+  font-size: 0.875rem;
+  font-weight: 560;
+  transition: color 0.15s ease;
+}
+
+.sign-in-link:hover {
+  color: var(--accent);
+}
+
+.hero__sign-in {
+  margin: 1rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.hero__sign-in a {
+  color: var(--text-strong);
+  font-weight: 560;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.hero__sign-in a:hover {
+  color: var(--accent);
+}
+
 .btn--sm {
   min-height: 2.25rem;
   padding: 0.45rem 0.95rem;

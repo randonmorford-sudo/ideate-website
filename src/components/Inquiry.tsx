@@ -3,20 +3,20 @@ export function Inquiry() {
     <section className="section inquiry" aria-labelledby="inquiry-heading">
       <div className="container inquiry__grid">
         <div className="inquiry__copy">
-          <p className="eyebrow">Inquiry</p>
-          <h2 id="inquiry-heading">AI that investigates before it answers.</h2>
+          <p className="eyebrow">Lumos</p>
+          <h2 id="inquiry-heading">One guide for research, framing, and decisions.</h2>
           <p>
-            Most AI tools are designed to answer. Ideate is designed to
-            investigate first.
+            Lumos is Ideate’s single visible guide. It helps teams investigate
+            before committing to a solution.
           </p>
           <p>
-            Lumos probes assumptions, identifies missing context, surfaces
-            unanswered questions, and helps strengthen the definition of the
-            opportunity before moving toward a solution.
+            Ask Lumos to probe assumptions, find missing context, research the
+            web, refine the Goal, explore solutions, assess risks, or review a
+            direction. The team reviews the results and chooses what to add.
           </p>
           <ul className="check-list">
             <li>Challenge weak framing</li>
-            <li>Find missing context</li>
+            <li>Research the web and review suggested sources</li>
             <li>Surface unanswered questions</li>
             <li>Build clarity progressively</li>
             <li>Keep human judgment central</li>

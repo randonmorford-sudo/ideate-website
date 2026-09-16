@@ -1,15 +1,15 @@
 const principles = [
   {
-    title: 'Structured inquiry',
-    body: 'A clear path from ambiguity to clarity. Teams investigate before they commit.',
+    title: 'Clear goals',
+    body: 'A guided path from a problem, goal, or idea to shared understanding.',
   },
   {
-    title: 'Evidence-backed reasoning',
-    body: 'Project knowledge and signals inform synthesis without replacing judgment.',
+    title: 'Evidence you can review',
+    body: 'Project knowledge and Lumos research inform decisions without replacing judgment.',
   },
   {
     title: 'Connected product thinking',
-    body: 'Brief, evidence, solutions, and direction stay linked as one product narrative.',
+    body: 'Goals, evidence, solutions, and direction stay linked as one product narrative.',
   },
 ] as const
 
