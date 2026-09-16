@@ -1,27 +1,19 @@
 const stages = [
   {
-    name: 'Idea',
-    description: 'Start with an ambiguous opportunity, not a forced frame.',
+    name: 'Goal',
+    description: 'Start with a problem, goal, or idea and clarify what matters.',
   },
   {
-    name: 'Inquiry',
-    description: 'Probe assumptions, gaps, and unanswered questions.',
+    name: 'Knowledge',
+    description: 'Bring in research, notes, documents, URLs, and reviewed Lumos sources.',
   },
   {
-    name: 'Brief',
-    description: 'Synthesize a coherent product narrative that can evolve.',
-  },
-  {
-    name: 'Evidence',
-    description: 'Ground the opportunity in project knowledge and signals.',
-  },
-  {
-    name: 'Solution Exploration',
-    description: 'Explore solutions only after the opportunity is clear.',
+    name: 'Solution',
+    description: 'Explore options that respond to the goal and its evidence.',
   },
   {
     name: 'Direction',
-    description: 'Arrive at a defensible direction tied to inquiry and evidence.',
+    description: 'Turn the reasoning into a clear decision and next steps.',
   },
 ] as const
 
@@ -35,10 +27,10 @@ export function HowItWorks() {
       <div className="container">
         <div className="section-header">
           <p className="eyebrow">How it works</p>
-          <h2 id="how-heading">From idea to direction, deliberately.</h2>
+          <h2 id="how-heading">One connected workspace for product decisions.</h2>
           <p className="section-intro">
-            Ideate connects each discovery stage so the work stays coherent from
-            first signal to chosen direction.
+            Ideate connects the goal, evidence, solution thinking, and direction
+            so the team can move forward without losing its reasoning.
           </p>
         </div>
 

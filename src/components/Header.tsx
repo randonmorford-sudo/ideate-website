@@ -1,3 +1,6 @@
+const APP_LOGIN_URL =
+  'https://ideator-ashen.vercel.app/login?returnTo=%2Fdashboard'
+
 const navItems = [
   { href: '#product', label: 'Product' },
   { href: '#how-it-works', label: 'How it works' },
@@ -16,9 +19,7 @@ export function Header({ menuOpen, onToggleMenu, onNavigate }: HeaderProps) {
     <header className="site-header">
       <div className="site-header__inner">
         <a className="brand" href="#top" onClick={onNavigate}>
-          <span className="brand__mark" aria-hidden="true">
-            I
-          </span>
+          <span className="brand__mark" aria-hidden="true">I</span>
           <span className="brand__name">Ideate</span>
         </a>
 
@@ -33,8 +34,11 @@ export function Header({ menuOpen, onToggleMenu, onNavigate }: HeaderProps) {
         </nav>
 
         <div className="site-header__actions">
-          <a className="btn btn--primary btn--sm" href="#beta">
-            Join the Beta
+          <a className="sign-in-link" href={APP_LOGIN_URL}>
+            Sign in
+          </a>
+          <a className="btn btn--primary btn--sm" href={APP_LOGIN_URL}>
+            Open Ideate
           </a>
           <button
             type="button"
@@ -69,12 +73,13 @@ export function Header({ menuOpen, onToggleMenu, onNavigate }: HeaderProps) {
               </li>
             ))}
             <li>
-              <a
-                className="btn btn--primary"
-                href="#beta"
-                onClick={onNavigate}
-              >
-                Join the Beta
+              <a className="sign-in-link" href={APP_LOGIN_URL}>
+                Sign in
+              </a>
+            </li>
+            <li>
+              <a className="btn btn--primary" href={APP_LOGIN_URL}>
+                Open Ideate
               </a>
             </li>
           </ul>

@@ -11,11 +11,11 @@ export function Workspace() {
         <div className="section-header">
           <p className="eyebrow">Product workspace</p>
           <h2 id="workspace-heading">
-            One connected workspace for discovery.
+            One connected workspace for product decisions.
           </h2>
           <p className="section-intro">
-            Brief, evidence, solution exploration, direction, and Lumos stay
-            linked in one place. Product thinking stays together instead of
+            Goals, project knowledge, solution exploration, direction, and Lumos
+            stay linked in one place. Product thinking stays together instead of
             splitting across tools and documents.
           </p>
         </div>

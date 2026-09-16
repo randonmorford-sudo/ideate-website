@@ -3,8 +3,8 @@ type ProductPreviewProps = {
 }
 
 const navItems = [
-  'Brief',
-  'Evidence',
+  'Goal',
+  'Knowledge',
   'Solutions',
   'Direction',
 ] as const
@@ -16,7 +16,7 @@ export function ProductPreview({ variant }: ProductPreviewProps) {
     <div
       className={`product-preview product-preview--${variant}`}
       role="img"
-      aria-label="Ideate product workspace showing brief, evidence, solution exploration, direction, and Lumos AI"
+      aria-label="Ideate product workspace showing a Goal, Knowledge, solution exploration, direction, and Lumos"
     >
       <div className="product-preview__chrome">
         <div className="product-preview__dots" aria-hidden="true">
@@ -46,7 +46,7 @@ export function ProductPreview({ variant }: ProductPreviewProps) {
         <div className="product-preview__main">
           <div className="preview-panel preview-panel--brief">
             <div className="preview-panel__meta">
-              <span>Brief</span>
+              <span>Goal</span>
               <span className="pill">Refining</span>
             </div>
             <h3>New users stall before experiencing core value.</h3>
@@ -70,7 +70,7 @@ export function ProductPreview({ variant }: ProductPreviewProps) {
             <div className="preview-split">
               <div className="preview-panel">
                 <div className="preview-panel__meta">
-                  <span>Evidence / Project Knowledge</span>
+                  <span>Knowledge / Project evidence</span>
                 </div>
                 <ul className="preview-list">
                   <li>Support notes cite confusion in first session</li>
