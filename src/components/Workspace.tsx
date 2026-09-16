@@ -11,7 +11,7 @@ export function Workspace() {
         <div className="section-header">
           <p className="eyebrow">Product workspace</p>
           <h2 id="workspace-heading">
-            One connected workspace for discovery.
+            One connected workspace for product decisions.
           </h2>
           <p className="section-intro">
             Goals, project knowledge, solution exploration, direction, and Lumos
