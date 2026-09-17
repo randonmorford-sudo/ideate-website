@@ -1,5 +1,4 @@
-const APP_LOGIN_URL =
-  'https://ideator-ashen.vercel.app/login?returnTo=%2Fdashboard'
+import { APP_LOGIN_URL } from '../lib/urls'
 
 const navItems = [
   { href: '#product', label: 'Product' },
