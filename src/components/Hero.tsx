@@ -13,8 +13,8 @@ export function Hero() {
             connected from first question to final direction.
           </p>
           <div className="hero__actions">
-            <a className="btn btn--primary" href={APP_LOGIN_URL}>
-              Open Ideate
+            <a className="btn btn--primary" href="#beta">
+              Join the Beta
             </a>
             <a className="btn btn--secondary" href="#how-it-works">
               Explore how it works

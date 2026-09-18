@@ -36,8 +36,8 @@ export function Header({ menuOpen, onToggleMenu, onNavigate }: HeaderProps) {
           <a className="sign-in-link" href={APP_LOGIN_URL}>
             Sign in
           </a>
-          <a className="btn btn--primary btn--sm" href={APP_LOGIN_URL}>
-            Open Ideate
+          <a className="btn btn--primary btn--sm" href="#beta" onClick={onNavigate}>
+            Join the Beta
           </a>
           <button
             type="button"
@@ -77,8 +77,8 @@ export function Header({ menuOpen, onToggleMenu, onNavigate }: HeaderProps) {
               </a>
             </li>
             <li>
-              <a className="btn btn--primary" href={APP_LOGIN_URL}>
-                Open Ideate
+              <a className="btn btn--primary" href="#beta" onClick={onNavigate}>
+                Join the Beta
               </a>
             </li>
           </ul>
